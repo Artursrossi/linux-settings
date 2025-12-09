@@ -29,9 +29,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Artursrossi/fork-ohmyzsh/m
 echo "📦 Installing zsh-dracula-theme..."
 git clone https://github.com/Artursrossi/fork-zsh-dracula-theme.git
 
+echo "🔌 Setting up zsh-dracula-theme..."
 mv fork-zsh-dracula-theme/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 mv fork-zsh-dracula-theme/lib ~/.oh-my-zsh/themes/lib
-
 rm -r fork-zsh-dracula-theme
 
 ###################################################################################################################################
