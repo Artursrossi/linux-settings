@@ -43,7 +43,7 @@ for APP in "${APPS[@]}"; do
         echo "✔️ $APP already installed. Skipping."
     else
         echo "⬇️ Installing: $APP"
-        flatpak install -y flathub "$APP"
+        sudo flatpak install -y flathub "$APP"
     fi
 done
 
