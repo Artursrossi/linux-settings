@@ -48,18 +48,19 @@
 - <code>❯ net-tools</code>
 - <code>❯ nmap</code>
 - <code>❯ blueman</code>
-- <code>❯ Visual Studio Code</code>
+- <code>❯ vim</code>
 - <code>❯ Google Chrome</code>
-- <code>❯ pgAdmin4</code>
+- <code>❯ Visual Studio Code</code>
 - <code>❯ Docker</code>
 - <code>❯ Node Version Manager</code>
-- <code>❯ Vim</code>
 - <code>❯ VirtualBox</code>
 
 ---
 
 ## Apps to install via Flatpak
 
+- <code>❯ pgAdmin4</code>
+- <code>❯ NotepadQQ</code>
 - <code>❯ Discord</code>
 - <code>❯ Brave browser</code>
 - <code>❯ Flameshot</code>
