@@ -5,13 +5,12 @@
 # - net-tools
 # - nmap
 # - blueman (optional, test before)
+# - vim
 # Apps list:
-# - Visual Studio Code
 # - Google Chrome
-# - pgAdmin4
+# - Visual Studio Code
 # - Docker
 # - Node Version Manager
-# - Vim
 # - VirtualBox
 
 #!/bin/bash
@@ -27,7 +26,6 @@ PACKAGES=(
     net-tools
     nmap
     blueman
-    pgadmin4
     vim
 )
 
@@ -44,8 +42,6 @@ done
 
 # Google Chrome
 echo "⬇️  Installing google-chrome-stable..."
-sudo dnf install -y fedora-workstation-repositories
-sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install -y google-chrome-stable
 
 ###################################################################################################################################
@@ -61,8 +57,7 @@ sudo dnf install -y code
 
 # Docker
 echo "⬇️  Installing docker..."
-sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Start and enable docker service
@@ -86,8 +81,37 @@ else
     echo "✅ NVM installed. Please restart your terminal to use it."
 fi
 
+# Manual intervention to add NVM to .zshrc
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+echo "[MANUAL INTERVENTION] - Edit ~/.zshrc file."
+echo "Add these lines:"
+echo ""
+echo "export NVM_DIR=\"$HOME/.nvm\""
+echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\""
+echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\""
+echo ""
+read -p "Have you saved the changes to ~/.zshrc? (y/N) " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo "Configuration incomplete. Please update ~/.zshrc to use the new plugins."
+    exit 1
+fi
+
+# Reload zsh
+echo "🔄 Reloading zshrc config..."
+source ~/.zshrc
+
+# Reload zsh
+source ~/.zshrc
+
 # Load NodeJS from nvm
-echo "🔌 Use NodeJS from nvm..."
+echo "🔌 Install latest LTS NodeJS version..."
+nvm install 24
+
+echo "🔌 Use latest LTS NodeJS version..."
 nvm use 24
 
 ###################################################################################################################################

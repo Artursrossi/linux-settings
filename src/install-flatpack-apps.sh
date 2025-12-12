@@ -1,5 +1,7 @@
 # Install Apps using Flatpak
 # List of Flatpak apps to install
+# - pgAdmin4
+# - NotepadQQ
 # - Discord
 # - Brave Browser
 # - Flameshot
@@ -17,6 +19,8 @@ set -e
 
 # Define Apps origin from Flathub
 APPS=(
+    org.pgadmin.pgadmin4
+    com.notepadqq.Notepadqq
     com.discordapp.Discord
     com.brave.Browser
     org.flameshot.Flameshot
