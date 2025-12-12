@@ -69,3 +69,41 @@
 - <code>❯ MongoDB Compass</code>
 - <code>❯ DBeaver Community Edition</code>
 - <code>❯ OBS Studio</code>
+
+---
+
+## Gnome settings
+
+### Icons Theme:
+
+<code>❯ Yaru</code>
+
+### Cursor Theme:
+
+<code>❯ Yaru</code>
+
+### Legacy Applications Theme:
+
+<code>❯ Yaru</code>
+
+### System Sound Theme:
+
+<code>❯ Yaru</code>
+
+### Interface Text Font:
+
+<code>❯ Ubuntu Regular (12 px)</code>
+
+### Document Text Font:
+
+<code>❯ Ubuntu Regular (12 px)</code>
+
+### Monospace Text Font:
+
+<code>❯ Ubuntu Mono Regular (14 px)</code>
+
+### Gnome Extensions:
+
+- <code>❯ Dash To Dock</code>
+
+---
