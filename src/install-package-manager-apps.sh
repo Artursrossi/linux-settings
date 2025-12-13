@@ -11,7 +11,8 @@
 # - Visual Studio Code
 # - Docker
 # - Node Version Manager
-# - VirtualBox
+# - Timeshift
+# - Veracrypt
 
 #!/bin/bash
 set -e
@@ -116,37 +117,16 @@ nvm use 24
 
 ###################################################################################################################################
 
-# VirtualBox
-echo "⬇️  Installing VirtualBox and its dependencies..."
+# Timeshift
+echo "⬇️  Installing timeshift..."
+sudo dnf install -y timeshift
 
-# 1. Enable RPM Fusion repositories
-if ! dnf repolist | grep -q "rpmfusion-free-updates"; then
-    echo "Enabling RPM Fusion free repository..."
-    sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-fi
-if ! dnf repolist | grep -q "rpmfusion-nonfree-updates"; then
-    echo "Enabling RPM Fusion nonfree repository..."
-    sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-fi
+###################################################################################################################################
 
-# 2. Update packages and install dependencies
-echo "Updating packages and installing VirtualBox dependencies..."
-sudo dnf update -y
-sudo dnf install -y @development-tools
-sudo dnf install -y kernel-devel kernel-headers dkms elfutils-libelf-devel zlib-devel
-
-# 3. Install VirtualBox
-echo "Installing VirtualBox..."
-sudo dnf install -y VirtualBox
-
-# 4. Rebuild kernel modules
-echo "Rebuilding VirtualBox kernel modules..."
-sudo /sbin/vboxconfig
-
-# 5. Add user to vboxusers group
-echo "Adding user $USER to vboxusers group..."
-sudo usermod -a -G vboxusers $USER
-echo "🚪 You may need to log out and log back in for VirtualBox group changes to take effect."
+# Veracrypt
+# Download RPM package on: https://veracrypt.io/en/Downloads.html
+# sudo dnf install fuse fuse-libs
+# sudo rpm -i veracrypt-*.rpm
 
 ###################################################################################################################################
 

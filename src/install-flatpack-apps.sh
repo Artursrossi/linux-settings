@@ -11,6 +11,7 @@
 # - MongoDB Compass
 # - DBeaver Community Edition
 # - OBS Studio
+# - Flatseal (Manage flatpak apps permissions)
 
 #!/bin/bash
 set -e
@@ -30,6 +31,7 @@ APPS=(
     com.mongodb.Compass
     io.dbeaver.DBeaverCommunity
     com.obsproject.Studio
+    com.github.tchx84.Flatseal
 )
 
 ###################################################################################################################################
