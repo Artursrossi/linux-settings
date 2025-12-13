@@ -1,0 +1,15 @@
+# Miscellaneous Configuration Script
+# Swap memory: 16 GB
+
+#!/bin/bash
+set -e
+
+###################################################################################################################################
+
+# Create Swap file (disk partitioning alternative)
+# Fedora uses /dev/zram0 by default for swap, which uses compressed RAM, but if you want a disk swap file instead, uncomment below:
+# Fedora uses btrfs by default, so we create a swap file accordingly.
+sudo btrfs filesystem mkswapfile --size 16G /swapfile
+sudo chmod 600 /swapfile
+sudo swapon --priority -2 /swapfile
+echo '/swapfile none swap sw,pri=-2 0 0' | sudo tee -a /etc/fstab
