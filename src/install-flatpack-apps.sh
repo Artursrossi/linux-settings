@@ -4,7 +4,6 @@
 # - NotepadQQ
 # - Discord
 # - Brave Browser
-# - Flameshot
 # - Postman
 # - Spotify
 # - RedisInsight
@@ -12,6 +11,8 @@
 # - DBeaver Community Edition
 # - OBS Studio
 # - Flatseal (Manage flatpak apps permissions)
+# - Gradia (Screenshot tool)
+# - AnyDesk
 
 #!/bin/bash
 set -e
@@ -24,7 +25,6 @@ APPS=(
     com.notepadqq.Notepadqq
     com.discordapp.Discord
     com.brave.Browser
-    org.flameshot.Flameshot
     com.getpostman.Postman
     com.spotify.Client
     com.redis.RedisInsight
@@ -32,6 +32,8 @@ APPS=(
     io.dbeaver.DBeaverCommunity
     com.obsproject.Studio
     com.github.tchx84.Flatseal
+    be.alexandervanhee.gradia
+    com.anydesk.Anydesk
 )
 
 ###################################################################################################################################

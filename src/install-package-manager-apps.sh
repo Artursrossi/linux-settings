@@ -3,9 +3,9 @@
 # - htop
 # - gzip
 # - net-tools
-# - nmap
-# - blueman (optional, test before)
 # - vim
+# - blueman (optional, test before)
+# - nmap
 # Apps list:
 # - Google Chrome
 # - Visual Studio Code
@@ -13,6 +13,7 @@
 # - Node Version Manager
 # - Timeshift
 # - Veracrypt
+# - KDiskMark
 
 #!/bin/bash
 set -e
@@ -25,9 +26,9 @@ PACKAGES=(
     htop
     gzip
     net-tools
-    nmap
-    blueman
     vim
+    blueman
+    nmap
 )
 
 for PKG in "${PACKAGES[@]}"; do
@@ -127,6 +128,12 @@ sudo dnf install -y timeshift
 # Download RPM package on: https://veracrypt.io/en/Downloads.html
 # sudo dnf install fuse fuse-libs
 # sudo rpm -i veracrypt-*.rpm
+
+###################################################################################################################################
+
+# KDiskMark
+echo "⬇️  Installing KDiskMark..."
+sudo dnf install -y kdiskmark
 
 ###################################################################################################################################
 
