@@ -63,13 +63,16 @@
 - <code>❯ NotepadQQ</code>
 - <code>❯ Discord</code>
 - <code>❯ Brave browser</code>
-- <code>❯ Flameshot</code>
 - <code>❯ Postman</code>
 - <code>❯ Spotify</code>
 - <code>❯ RedisInsight</code>
 - <code>❯ MongoDB Compass</code>
 - <code>❯ DBeaver Community Edition</code>
 - <code>❯ OBS Studio</code>
+- <code>❯ Flatseal</code>
+- <code>❯ Gradia</code>
+- <code>❯ FileZilla</code>
+- <code>❯ Any Desk</code>
 
 ---
 

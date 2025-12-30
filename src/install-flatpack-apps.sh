@@ -12,6 +12,7 @@
 # - OBS Studio
 # - Flatseal (Manage flatpak apps permissions)
 # - Gradia (Screenshot tool)
+# - FileZilla
 # - AnyDesk
 
 #!/bin/bash
@@ -33,8 +34,17 @@ APPS=(
     com.obsproject.Studio
     com.github.tchx84.Flatseal
     be.alexandervanhee.gradia
+    org.filezillaproject.Filezilla
     com.anydesk.Anydesk
 )
+
+###################################################################################################################################
+
+# Ensure the script is run with root privileges
+if [ "$EUID" -ne 0 ]; then
+    echo "❌ Please run this script as root (e.g., using sudo)."
+    exit 1
+fi
 
 ###################################################################################################################################
 
@@ -44,16 +54,9 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 ###################################################################################################################################
 
-# Install Apps
+# Install Flatpak Apps
 echo "📦 Installing Flatpak apps..."
-for APP in "${APPS[@]}"; do
-    if flatpak info "$APP" &>/dev/null; then
-        echo "✔️ $APP already installed. Skipping."
-    else
-        echo "⬇️ Installing: $APP"
-        sudo flatpak install -y flathub "$APP"
-    fi
-done
+flatpak install -y flathub "${APPS[@]}"
 
 ###################################################################################################################################
 
