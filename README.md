@@ -46,14 +46,15 @@
 - <code>❯ htop</code>
 - <code>❯ gzip</code>
 - <code>❯ net-tools</code>
-- <code>❯ nmap</code>
-- <code>❯ blueman</code>
 - <code>❯ vim</code>
+- <code>❯ blueman</code>
+- <code>❯ nmap</code>
 - <code>❯ Google Chrome</code>
 - <code>❯ Visual Studio Code</code>
 - <code>❯ Docker</code>
 - <code>❯ Node Version Manager</code>
-- <code>❯ VirtualBox</code>
+- <code>❯ Veracrypt</code>
+- <code>❯ KDiskMark</code>
 
 ---
 

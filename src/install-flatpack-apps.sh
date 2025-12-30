@@ -16,12 +16,21 @@
 # - AnyDesk
 
 #!/bin/bash
+
 set -e
 
 ###################################################################################################################################
 
+# Ensure the script is run without sudo privileges
+if [ "$EUID" -eq 0 ]; then
+  echo "❌ You cannot run this script with sudo privileges."
+  exit 1
+fi
+
+###################################################################################################################################
+
 # Define Apps origin from Flathub
-APPS=(
+FLATPAK_APPS=(
     org.pgadmin.pgadmin4
     com.notepadqq.Notepadqq
     com.discordapp.Discord
@@ -40,23 +49,15 @@ APPS=(
 
 ###################################################################################################################################
 
-# Ensure the script is run with root privileges
-if [ "$EUID" -ne 0 ]; then
-    echo "❌ Please run this script as root (e.g., using sudo)."
-    exit 1
-fi
-
-###################################################################################################################################
-
 # Add Flathub repository if not already added
 echo "🔄 Updating flathub..."
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 ###################################################################################################################################
 
 # Install Flatpak Apps
 echo "📦 Installing Flatpak apps..."
-flatpak install -y flathub "${APPS[@]}"
+sudo flatpak install -y flathub "${FLATPAK_APPS[@]}"
 
 ###################################################################################################################################
 

@@ -4,24 +4,31 @@
 # - gzip
 # - net-tools
 # - vim
-# - blueman (optional, test before)
+# - blueman
 # - nmap
 # Apps list:
 # - Google Chrome
 # - Visual Studio Code
 # - Docker
 # - Node Version Manager
-# - Timeshift
 # - Veracrypt
 # - KDiskMark
 
 #!/bin/bash
+
 set -e
 
 ###################################################################################################################################
 
-# Simple DNF Packages
-echo "📦 Installing standard repository packages..."
+# Ensure the script is run without sudo privileges
+if [ "$EUID" -eq 0 ]; then
+  echo "❌ You cannot run this script with sudo privileges."
+  exit 1
+fi
+
+###################################################################################################################################
+
+# Define Packages to install
 PACKAGES=(
     htop
     gzip
@@ -31,14 +38,11 @@ PACKAGES=(
     nmap
 )
 
-for PKG in "${PACKAGES[@]}"; do
-    if rpm -q "$PKG" &>/dev/null; then
-        echo "✔️  $PKG is already installed. Skipping."
-    else
-        echo "⬇️  Installing $PKG..."
-        sudo dnf install -y "$PKG"
-    fi
-done
+###################################################################################################################################
+
+# Install DNF Packages
+echo "📦 Installing standard repository packages..."
+sudo dnf install -y "${PACKAGES[@]}"
 
 ###################################################################################################################################
 
@@ -106,21 +110,12 @@ fi
 echo "🔄 Reloading zshrc config..."
 source ~/.zshrc
 
-# Reload zsh
-source ~/.zshrc
-
 # Load NodeJS from nvm
 echo "🔌 Install latest LTS NodeJS version..."
 nvm install 24
 
 echo "🔌 Use latest LTS NodeJS version..."
 nvm use 24
-
-###################################################################################################################################
-
-# Timeshift
-echo "⬇️  Installing timeshift..."
-sudo dnf install -y timeshift
 
 ###################################################################################################################################
 

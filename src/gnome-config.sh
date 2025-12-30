@@ -15,6 +15,14 @@ set -e
 
 ###################################################################################################################################
 
+# Ensure the script is run without sudo privileges
+if [ "$EUID" -eq 0 ]; then
+  echo "❌ You cannot run this script with sudo privileges."
+  exit 1
+fi
+
+###################################################################################################################################
+
 # Install gnome-tweaks
 echo "📦 Installing gnome-tweaks..."
 sudo dnf install -y gnome-tweaks
@@ -23,7 +31,7 @@ sudo dnf install -y gnome-tweaks
 
 # Install yaru-theme
 echo "📦 Installing yaru-theme..."
-sudo dnf install yaru-theme
+sudo dnf install -y yaru-theme
 
 ###################################################################################################################################
 
@@ -31,11 +39,19 @@ sudo dnf install yaru-theme
 echo "📦 Installing gnome-shell-extension-dash-to-dock..."
 sudo dnf install -y gnome-shell-extension-dash-to-dock
 
+# Move extension from /usr/share/gnome-shell/extensions/ to ~/.local/share/gnome-shell/extensions/
+EXTENSION_SRC="/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com"
+EXTENSION_DEST="$HOME/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com"
+
+if [ -d "$EXTENSION_SRC" ]; then
+    echo "📂 Copying dash-to-dock extension to local directory..."
+    mkdir -p "$(dirname "$EXTENSION_DEST")"  # Ensure the destination directory exists
+    cp -r "$EXTENSION_SRC" "$EXTENSION_DEST"  # Copy the directory recursively
+fi
+
 ###################################################################################################################################
 
-# Active dash-to-dock extension
-# List extensions: "gnome-extensions list"
-# Maybe its necessary to move extension to: "~/.local/share/gnome-shell/extensions/" (optional)
+# Activate dash-to-dock extension
 echo "🔌 Activating dash-to-dock extension..."
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
 
@@ -69,6 +85,25 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 # Enable multiple dots style for running indicators
 echo "🔌 Setting multiple dots indicator for running apps (dash-to-dock extension)..."
 gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
+
+###################################################################################################################################
+
+# Path to the image you want to set as the background
+BACKGROUND_IMAGE="$(pwd)/wallpaper.jpg"
+FINAL_BACKGROUND_IMAGE="$HOME/Pictures/wallpaper.jpg"
+
+# Copy image to Pictures directory
+cp "$BACKGROUND_IMAGE" "$FINAL_BACKGROUND_IMAGE"
+
+# Check if the image exists
+if [ ! -f "$FINAL_BACKGROUND_IMAGE" ]; then
+  echo "❌ Background image not found: $FINAL_BACKGROUND_IMAGE"
+  exit 1
+fi
+
+# Set the background image
+echo "🔌 Setting background image..."
+gsettings set org.gnome.desktop.background picture-uri "file://$FINAL_BACKGROUND_IMAGE"
 
 ###################################################################################################################################
 
