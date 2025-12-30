@@ -40,7 +40,6 @@ git clone https://github.com/Artursrossi/fork-zsh-dracula-theme.git "$TEMP_DIR/f
 echo "🔌 Setting up zsh-dracula-theme..."
 mv "$TEMP_DIR/fork-zsh-dracula-theme/dracula.zsh-theme" ~/.oh-my-zsh/themes/dracula.zsh-theme
 mv "$TEMP_DIR/fork-zsh-dracula-theme/lib" ~/.oh-my-zsh/themes/lib
-rm -r "$TEMP_DIR"
 
 ###################################################################################################################################
 

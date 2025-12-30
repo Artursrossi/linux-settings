@@ -18,6 +18,20 @@
 
 > INFO: Red Hat Package Manager
 
+### Disk Partitions:
+
+```sh
+├── EFI /boot/efi (vfat filesystem) [1GB]
+├── boot /boot (EXT4) [2GB]
+└── Artur / (btrfs w/ LUKS2 ENC) [All Free Space]
+    ├── top-level no assigned mount point (btrfs subvolume)
+    ├── root / (btrfs subvolume)
+    ├── home /home (btrfs subvolume)
+    ├── log /var/log (btrfs subvolume)
+    ├── swap /swap (btrfs subvolume)
+    └── snapshots /.snapshots (btrfs subvolume)
+```
+
 ---
 
 ## Terminal settings

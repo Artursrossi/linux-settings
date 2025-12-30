@@ -47,13 +47,13 @@ sudo dnf install -y "${PACKAGES[@]}"
 ###################################################################################################################################
 
 # Google Chrome
-echo "⬇️  Installing google-chrome-stable..."
+echo "📦  Installing google-chrome-stable..."
 sudo dnf install -y google-chrome-stable
 
 ###################################################################################################################################
 
 # Visual Studio Code
-echo "⬇️  Installing visual studio code..."
+echo "📦  Installing visual studio code..."
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 sudo dnf check-update || true
@@ -62,7 +62,7 @@ sudo dnf install -y code
 ###################################################################################################################################
 
 # Docker
-echo "⬇️  Installing docker..."
+echo "📦  Installing docker..."
 sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
@@ -79,7 +79,7 @@ echo "🚪 You may need to log out and log back in for Docker group changes to t
 ###################################################################################################################################
 
 # Node Version Manager (NVM)
-echo "⬇️  Installing Node Version Manager (NVM)..."
+echo "📦  Installing Node Version Manager (NVM)..."
 if [ -d "$HOME/.nvm" ]; then
     echo "✔️  NVM is already installed. Skipping."
 else
