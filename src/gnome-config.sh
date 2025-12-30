@@ -88,25 +88,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'D
 
 ###################################################################################################################################
 
-# Path to the image you want to set as the background
-BACKGROUND_IMAGE="$(pwd)/wallpaper.jpg"
-FINAL_BACKGROUND_IMAGE="$HOME/Pictures/wallpaper.jpg"
-
-# Copy image to Pictures directory
-cp "$BACKGROUND_IMAGE" "$FINAL_BACKGROUND_IMAGE"
-
-# Check if the image exists
-if [ ! -f "$FINAL_BACKGROUND_IMAGE" ]; then
-  echo "❌ Background image not found: $FINAL_BACKGROUND_IMAGE"
-  exit 1
-fi
-
-# Set the background image
-echo "🔌 Setting background image..."
-gsettings set org.gnome.desktop.background picture-uri "file://$FINAL_BACKGROUND_IMAGE"
-
-###################################################################################################################################
-
 # Ubuntu fonts:
 # https://fonts.google.com/specimen/Ubuntu
 # https://fonts.google.com/specimen/Ubuntu+Mono

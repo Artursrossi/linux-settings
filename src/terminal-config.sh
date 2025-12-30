@@ -4,34 +4,43 @@
 # Plugins: zsh-autosuggestions, zsh-syntax-highlighting
 # Theme: Dracula
 
-#!/bin/bash
+#!/bin/bash~
+
 set -e
+
+###################################################################################################################################
+
+# Ensure the script is run without sudo privileges
+if [ "$EUID" -eq 0 ]; then
+  echo "❌ You cannot run this script with sudo privileges."
+  exit 1
+fi
 
 ###################################################################################################################################
 
 # Install Shell
 echo "📦 Installing zsh..."
-sudo dnf install zsh
+sudo dnf install -y zsh
 
 # Make default shell
-chsh -s $(which zsh)
+chsh -s $(which zsh) || true
 
 ###################################################################################################################################
 
 # Install Framework
 echo "📦 Installing ohmyzsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Artursrossi/fork-ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Artursrossi/fork-ohmyzsh/master/tools/install.sh)" --keep-zshrc --unattended --install-dir="$TEMP_DIR" || true
 
 ###################################################################################################################################
 
 # Install terminal theme
 echo "📦 Installing zsh-dracula-theme..."
-git clone https://github.com/Artursrossi/fork-zsh-dracula-theme.git
+git clone https://github.com/Artursrossi/fork-zsh-dracula-theme.git "$TEMP_DIR/fork-zsh-dracula-theme"
 
 echo "🔌 Setting up zsh-dracula-theme..."
-mv fork-zsh-dracula-theme/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
-mv fork-zsh-dracula-theme/lib ~/.oh-my-zsh/themes/lib
-rm -r fork-zsh-dracula-theme
+mv "$TEMP_DIR/fork-zsh-dracula-theme/dracula.zsh-theme" ~/.oh-my-zsh/themes/dracula.zsh-theme
+mv "$TEMP_DIR/fork-zsh-dracula-theme/lib" ~/.oh-my-zsh/themes/lib
+rm -r "$TEMP_DIR"
 
 ###################################################################################################################################
 
