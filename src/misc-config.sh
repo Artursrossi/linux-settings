@@ -14,7 +14,7 @@ sudo btrfs filesystem mkswapfile --size 16G /swap/swapfile
 sudo chmod 600 /swap/swapfile
 sudo swapon --priority -2 /swap/swapfile
 echo '/swap/swapfile none swap sw,pri=-2 0 0' | sudo tee -a /etc/fstab
-# Swap mount needs to have this configuration: subvol=swap,nodatacow,noatime 0 0'
+# Swap mount needs to have this configuration: subvol=swap,nodatacow,noatime 0 0
 sudo systemctl daemon-reload
 
 ###################################################################################################################################
