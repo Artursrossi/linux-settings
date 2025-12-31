@@ -4,7 +4,7 @@
 # Plugins: zsh-autosuggestions, zsh-syntax-highlighting
 # Theme: Dracula
 
-#!/bin/bash~
+#!/bin/bash
 
 set -e
 

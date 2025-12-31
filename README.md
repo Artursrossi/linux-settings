@@ -4,7 +4,7 @@
 
 ### Linux distribution:
 
-<code>❯ Fedora</code>
+<code>❯ Fedora 43 Workstation</code>
 
 ### Package manager:
 
@@ -31,6 +31,11 @@
     ├── swap /swap (btrfs subvolume)
     └── snapshots /.snapshots (btrfs subvolume)
 ```
+
+### Swap Memory
+
+- <code>❯ /dev/zram0 [8GB] (priority 100)</code>
+- <code>❯ /swap/swapfile [16GB] (priority -2)</code>
 
 ---
 
@@ -124,5 +129,22 @@
 ### Gnome Extensions:
 
 - <code>❯ Dash To Dock</code>
+
+---
+
+## Backups settings (Snapper)
+
+<code>❯ Snapper Cleanup: Enabled</code>
+
+<code>❯ Snapper Timeline: Enabled</code>
+
+### Timeline Snapshots Retention:
+
+- <code>❯ Hourly: 0</code>
+- <code>❯ Daily: 5</code>
+- <code>❯ Weekly: 3</code>
+- <code>❯ Monthly: 2</code>
+- <code>❯ Yearly: 0</code>
+- <code>❯ Number: 10</code>
 
 ---
