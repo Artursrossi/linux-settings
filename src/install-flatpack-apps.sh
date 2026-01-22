@@ -14,6 +14,8 @@
 # - Gradia (Screenshot tool)
 # - FileZilla
 # - AnyDesk
+# - Switcheroo
+# - Obsidian
 
 #!/bin/bash
 
@@ -45,6 +47,8 @@ FLATPAK_APPS=(
     be.alexandervanhee.gradia
     org.filezillaproject.Filezilla
     com.anydesk.Anydesk
+    io.gitlab.adhami3310.Converter
+    md.obsidian.Obsidian
 )
 
 ###################################################################################################################################

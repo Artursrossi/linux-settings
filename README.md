@@ -93,6 +93,8 @@
 - <code>❯ Gradia</code>
 - <code>❯ FileZilla</code>
 - <code>❯ Any Desk</code>
+- <code>❯ Switcheroo</code>
+- <code>❯ Obsidian</code>
 
 ---
 
