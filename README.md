@@ -68,6 +68,7 @@
 - <code>❯ vim</code>
 - <code>❯ blueman</code>
 - <code>❯ nmap</code>
+- <code>❯ telnet</code>
 - <code>❯ Google Chrome</code>
 - <code>❯ Visual Studio Code</code>
 - <code>❯ Docker</code>
@@ -84,6 +85,7 @@
 - <code>❯ Discord</code>
 - <code>❯ Brave browser</code>
 - <code>❯ Postman</code>
+- <code>❯ Bruno (API Client)</code>
 - <code>❯ Spotify</code>
 - <code>❯ RedisInsight</code>
 - <code>❯ MongoDB Compass</code>
@@ -95,6 +97,7 @@
 - <code>❯ Any Desk</code>
 - <code>❯ Switcheroo</code>
 - <code>❯ Obsidian</code>
+- <code>❯ Resources</code>
 
 ---
 

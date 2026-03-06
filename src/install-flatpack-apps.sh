@@ -5,6 +5,7 @@
 # - Discord
 # - Brave Browser
 # - Postman
+# - Bruno (API Client)
 # - Spotify
 # - RedisInsight
 # - MongoDB Compass
@@ -16,6 +17,7 @@
 # - AnyDesk
 # - Switcheroo
 # - Obsidian
+# - Resources
 
 #!/bin/bash
 
@@ -38,6 +40,7 @@ FLATPAK_APPS=(
     com.discordapp.Discord
     com.brave.Browser
     com.getpostman.Postman
+    com.usebruno.Bruno
     com.spotify.Client
     com.redis.RedisInsight
     com.mongodb.Compass
@@ -49,6 +52,7 @@ FLATPAK_APPS=(
     com.anydesk.Anydesk
     io.gitlab.adhami3310.Converter
     md.obsidian.Obsidian
+    net.nokyan.Resources
 )
 
 ###################################################################################################################################

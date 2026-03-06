@@ -6,6 +6,7 @@
 # - vim
 # - blueman
 # - nmap
+# - telnet
 # Apps list:
 # - Google Chrome
 # - Visual Studio Code
@@ -36,6 +37,7 @@ PACKAGES=(
     vim
     blueman
     nmap
+    telnet
 )
 
 ###################################################################################################################################
